@@ -49,13 +49,27 @@ function saveTemp(data) {
 // get home page
 app.get('/', (req, res) => res.render('index'));
 
+
 // get device data [Params : id = device id here, timefrom = time from when the user wants to see]
-app.get('/device/:id', (req, res) => {
+app.get('/device/:id/:date', (req, res) => {
     if(req.params.id) {
-        Temperature.find({ deviceSerialNumber : capitalizeFirstLetter(req.params.id)}).then(function(data) {
+
+        let device = req.params.id;
+        let filteredDate;
+        if(!req.params.date) {
+            let tempdate = new Date();
+            tempdate.setDate(tempdate.getDate()-1); 
+            tempdate.toISOString();
+
+            filteredDate = tempdate;
+        } else {
+            let tempdate = new Date(req.params.date);
+            filteredDate = tempdate.toISOString();
+        }
+
+        Temperature.find({ deviceSerialNumber : capitalizeFirstLetter(req.params.id), timestamp : { $gt : filteredDate}}).then(function(data) {
             res.json(data);
         });
-        
     }
 });
 

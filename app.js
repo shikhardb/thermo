@@ -37,7 +37,8 @@ function saveTemp(data) {
 
     var tempdata = new Temperature({
         deviceSerialNumber: data.device,
-        temperature: data.temperature
+        temperature: data.temperature,
+        timestamp: data.timestamp
     })
 
     tempdata.save(function(err, res) {
@@ -49,6 +50,10 @@ function saveTemp(data) {
 
 app.get('/', (req, res) => res.render('index'));
 
+app.get('/thermo', (req, res) => {
+
+});
+
 app.post('/', function (req, res) {
     let result = saveTemp(req.body);
     if(result === true) {
@@ -58,13 +63,21 @@ app.post('/', function (req, res) {
     }
 });
 
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
 // start cron job
 new CronJob('0,5,10,15,20,25,30,35,40,45,50,55 * * * * *', function () {
     let dummyDevices = ['Thermometer', 'Battery', 'Radiator'];
     let randomTemp = Math.ceil(Math.random()*100);
     let randomDevice = Math.floor(Math.random()*3);
 
-    let mumble = { "device" :  dummyDevices[randomDevice], "temperature" : randomTemp}
+
+    
+    let randomDt = randomDate(new Date(2017, 0, 1), new Date());
+
+    let mumble = { "device" :  dummyDevices[randomDevice], "temperature" : randomTemp, "timestamp" : randomDt}
 
     // save a new data every 5 seconds
     saveTemp(mumble);

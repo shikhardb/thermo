@@ -51,7 +51,7 @@ app.get('/', (req, res) => res.render('index'));
 
 
 // get device data [Params : id = device id here, timefrom = time from when the user wants to see]
-app.get('/device/:id/:date', (req, res) => {
+app.get(['/device/:id', '/device/:id/:date'], (req, res) => {
     if(req.params.id) {
 
         let device = req.params.id;

@@ -25,10 +25,9 @@ db.once('open', function () {
 
 // create temperature schema
 const tempSchema = mongoose.Schema({
-    timestamp: { type: Date, default: Date.now },
     deviceSerialNumber: String,
     temperature: Number
-});
+}, { timestamps: { createdAt: 'timestamp' } });
 
 // create mongoose model object
 var Temperature = mongoose.model('Temperature', tempSchema);
@@ -72,8 +71,6 @@ new CronJob('0,5,10,15,20,25,30,35,40,45,50,55 * * * * *', function () {
     let dummyDevices = ['Thermometer', 'Battery', 'Radiator'];
     let randomTemp = Math.ceil(Math.random()*100);
     let randomDevice = Math.floor(Math.random()*3);
-
-
     
     let randomDt = randomDate(new Date(2017, 0, 1), new Date());
 

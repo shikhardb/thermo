@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<!-- saved from url=(0123)https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645 -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+        <meta name="referrer" content="origin">
+
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645">
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+        <meta name="twitter:title" property="og:title" itemprop="title name" content="Need to perform a reverse DNS lookup of a particular IP address in java">
+        <meta name="twitter:description" property="og:description" itemprop="description" content="I have taken the code linked to by @Sam DeHaan, cleaned it up a bit and tested it.
+
+/**
+ * Do a reverse DNS lookup to find the host name associated with an IP address. Gets results more often than
+...">
+        
+        <script src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/stub.en.js.download"></script>
+    
+    <link rel="stylesheet" type="text/css" href="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/stacks.css">
+
+        <link rel="stylesheet" type="text/css" href="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/primary.css">
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Need to perform a reverse DNS lookup of a particular IP address in java&#39;" href="https://stackoverflow.com/feeds/question/7097623">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+            <style type="text/css">#noscript-warning { display : none; }</style>
+
+
+            <script>
+              ((window.gitter = {}).chat = {}).options = {
+                room: 'reverse-dns-errors'
+              };
+            </script>
+            <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+            
+        <script>
+
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({canOpenBounty:true,votesCast:[],totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:7097623});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '7097623');
+                // TODO: There's a CR for replacing this with inline info on the question for moderators
+                // https://trello.com/c/ynDHhvrB/158-cr-move-the-mod-info-out-of-the-margin-and-into-the-post-estimate-needed
+                // Before we roll out the sidebar everywhere (or at least shortly after that?), we should implement it.
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+        
+             
+        
+                <script>
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com');
+            StackExchange.realtime.subscribeToReputationNotifications('1');
+                StackExchange.realtime.subscribeToTopBarNotifications('1');
+        });
+    </script>
+    <script>
+        StackExchange.init({"locale":"en","serverTime":1522323329,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"c33a7c60fc2b3820da0f7ad07e625fde745b3f78596959a6a19b9bb8f555e384","tid":"431e5e77-ac45-80de-1bae-112f93d71c87","rep":788,"isRegistered":true,"userType":3,"userId":2605933,"accountId":3076816,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"https://www.gravatar.com/avatar/c1cc72b6931c97f7986caea5dc7c07b4?s=32&amp;d=identicon&amp;r=PG\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"https://stackoverflow.com/users/2605933/shikhar","canSeeDeletedPosts":false},"realtime":{"newest":false,"active":false,"tagged":true,"staleDisconnectIntervalInHours":0,"workerIframeDomain":"https://cdn.sstatic.net"},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4}}, {"site":{"allowImageUploads":true,"commentHighlightingWithCSS":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true},"userMessaging":{},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"0584dd015727","js/moderator.en.js":"d350b664ddb3","js/full-anon.en.js":"6808ee4dc76a","js/full.en.js":"9c8d108d5cef","js/wmd.en.js":"8dbdc4eee37d","js/third-party/jquery.autocomplete.min.js":"bdb258e949a8","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"c7a7fdd3897d","js/help.en.js":"ce2977cf4348","js/tageditor.en.js":"4224fbb83192","js/tageditornew.en.js":"d7ea6bfe4b2a","js/inline-tag-editing.en.js":"e7aa31e8eba1","js/revisions.en.js":"2faaeaae2529","js/review.en.js":"c1a01cd0c505","js/tagsuggestions.en.js":"cc108c1afbca","js/post-validation.en.js":"fce1fc47f0ae","js/explore-qlist.en.js":"a5d8f71511e1","js/events.en.js":"f42700cee8bd","js/keyboard-shortcuts.en.js":"30bd38a9e86d","js/external-editor.en.js":"5e19500acec9","js/adops.en.js":"22a9bd59b1e9","js/external-editor.en.js":"5e19500acec9","js/snippet-javascript.en.js":"baa5f1a87f26","js/snippet-javascript-codemirror.en.js":"828fae4d0645"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css">&lt;style&gt;body,.top-bar{margin-top:1.9em}&lt;/style&gt;</noscript>
+    <script async="" src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/full.en.js.download"></script><link rel="preload" href="https://adservice.google.co.in/adsid/integrator.js?domain=stackoverflow.com" as="script"><script type="text/javascript" src="https://adservice.google.co.in/adsid/integrator.js?domain=stackoverflow.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=stackoverflow.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=stackoverflow.com"></script><script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_190.js" async=""></script><link rel="stylesheet" href="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/clc.min.css" type="text/css"><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-17/html/container.html"><script async="" src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/snippet-javascript.en.js.download"></script><script async="" src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/post-validation.en.js.download"></script><script async="" src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/prettify-full.en.js.download"></script><script async="" src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/external-editor.en.js.download"></script><script async="" src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/wmd.en.js.download"></script><style type="text/css"> .wmd-snippet-button span { background-position: 0 0; } .wmd-snippet-button:hover span { background-position: 0 -40px; }</style></head>
+    <body class="question-page new-topbar">
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">
+                                <a href="https://stackoverflow.com/" class="-logo js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                        <span class="-img _glyph">Stack Overflow</span>
+                    </a>
+
+
+                <nav class="navigation" role="navigation" aria-label="site navigation">
+                    <ol class="-list">
+        <li class="-item _current">
+            <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+        </li>
+        <li class="-item">
+            <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Developer Jobs</a>
+        </li>
+        <li class="-item">
+            <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+        </li>
+        <li class="-item">
+            <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+        </li>
+                    </ol>
+                </nav>
+
+        </div>
+
+            <form id="search" action="https://stackoverflow.com/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <input name="q" type="text" placeholder="Search…" value="" tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field">
+                    <button type="submit" aria-label="Search..." class="btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg></button>
+            </form>
+
+        
+
+
+    
+
+<div class="-actions">
+            <a href="https://stackoverflow.com/users/2605933/shikhar" class="my-profile js-gps-track" data-gps-track="profile_summary.click()">
+            <div class="gravatar-wrapper-24" title="Shikhar"><img src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/c1cc72b6931c97f7986caea5dc7c07b4" alt="" width="24" height="24" class="-avatar js-avatar-me"></div>
+                <div class="-rep js-header-rep" title="your reputation: 788">788</div>
+                    <div class="-badges">
+<span title="1 gold badge"><span class="badge1">●</span><span class="badgecount">1</span></span><span title="7 silver badges"><span class="badge2">●</span><span class="badgecount">7</span></span><span title="18 bronze badges"><span class="badge3">●</span><span class="badgecount">18</span></span>                    </div>
+            </a>
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="https://stackoverflow.com/users/logout" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:8 })">log out</a>
+    </div>
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+                    <a href="https://stackexchange.com/users/3076816/?tab=accounts">your communities</a>
+            </h3>
+
+                <a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" id="edit-pinned-sites">edit</a>
+                <a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" id="cancel-pinned-sites" style="display: none;">cancel</a>
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <ul class="my-sites">
+                        <li>
+                                <a href="https://stackoverflow.com/" class="site-link js-gps-track" data-id="1" data-gps-track="site.switch({ target_site:1, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-stackoverflow site-icon" title="Stack Overflow"></div>
+        Stack Overflow
+            <span class="rep-score">788</span>
+    </a>
+
+                        </li>
+                </ul>
+                    <div class="pinned-site-editor-container" style="display: none;">
+                        <input id="js-site-search-txt" type="text" class="site-filter-input" value="" placeholder="Add a Stack Exchange community">
+                        <input type="submit" id="pin-site-btn" value="Add" disabled="disabled">
+                        <ul class="js-found-sites found-sites"></ul>
+                        <ul class="pinned-site-list sortable" data-custom-list="False">
+                        </ul>
+                        <input type="submit" value="Save" id="save-pinned-sites-btn" disabled="disabled">
+                        <a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" id="reset-pinned-sites">reset to default list</a>
+                    </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+        </div>
+        <ol class="-list">
+    <li class="-item">
+        <a href="https://stackexchange.com/users/3076816?tab=inbox" class="-link js-inbox-button" title="You have unread inbox messages">
+            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z"></path></svg>
+            <span class="indicator-badge js-unread-count _important">2</span>
+        </a>
+    </li>
+    <li class="-item">
+        <a href="https://stackexchange.com/users/3076816?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive">
+            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"></path></svg>
+            <span class="indicator-badge js-unread-count _positive" style="display: none;"></span>
+        </a>
+    </li>
+
+    <li class="-item">
+        <a href="https://stackoverflow.com/review" class="-link js-gps-track js-review-button" title="Review queues - help improve the site" data-gps-track="review_popup.click({ in_danger: false })">
+            <svg aria-hidden="true" class="svg-icon iconReviewQueue" width="18" height="18" viewBox="0 0 18 18"><path d="M16 7.5l-5 4.97-1.79-1.77a1 1 0 0 0-1.4 0l-2.1 2.1a1 1 0 0 0 0 1.4L8.5 17H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v4.5zM12 7H2v2h10V7zm2-4H2v2h12V3zM2 11v2h3v-2H2zm16-.5l-7 7-4-4L8.5 12l2.5 2.5L16.5 9l1.5 1.5z"></path></svg>
+        </a>
+        
+    </li>
+    <li class="-item"><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"></path></svg>
+    </a></li>
+
+    <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 172 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+        </ol>
+    </nav>
+</div>
+
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+        StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+
+<div id="announcement-banner" data-campaign="2018-03-13.dev-survey-2018" data-cookie="notice-dsr" data-expire-date="1524211200000">
+    <div class="-container">
+        <span class="-body">The results are in!</span>
+        <a class="-link js-link js-gps-track" href="https://insights.stackoverflow.com/survey/2018/" data-ga="[&quot;dev-survey-2018&quot;,&quot;Announcement Banner&quot;,&quot;https://insights.stackoverflow.com/survey/2018/&quot;,null,{&quot;dimension4&quot;:&quot;dev-survey-2018&quot;}]" data-gps-track="announcement_banner.click({campaign: &#39;2018-03-13.dev-survey-2018&#39;, location: 2, action: 2})">See the 2018 Developer Survey results. »</a>
+        <a class="-dismiss js-dismiss js-gps-track" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" title="dismiss" data-gps-track="announcement_banner.click({campaign: &#39;2018-03-13.dev-survey-2018&#39;, location: 2, action: 1})"><svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"></path></svg></a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+        var $banner = $('#announcement-banner');
+
+        function setCookie(value) {
+            $.cookie($banner.data('cookie'), value, {
+                expires: (new Date($banner.data('expire-date'))),
+                path: '/'
+            });
+        }
+
+        $banner.find('.js-link').click(function () {
+            setCookie('2;' + Date.now());
+        });
+
+        $banner.find('.js-dismiss').click(function () {
+            setCookie('4;' + Date.now());
+            $banner.animate({ height: '0', opacity: 0 }, 'fast', 'linear', function () { $banner.remove(); });
+            return false;
+        });
+    });
+</script>
+
+    <div class="container _full ">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <div class="inner-content clearfix">
+        <div id="question-header">
+                    <h1 itemprop="name"><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java" class="question-hyperlink">Need to perform a reverse DNS lookup of a particular IP address in java</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+        <a href="https://stackoverflow.com/questions/ask" class="btn">Ask Question</a>
+</div>
+
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="7097623" id="question">
+
+        
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="7097623">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">8</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" title="Click to mark as favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>4</b></div>
+
+
+</div>
+
+            </div>
+
+            
+<div class="postcell post-layout--right">
+    <div class="post-text" itemprop="text">
+
+<p>I need to get the DNS address, for example <strong>"http://stackoverflow.com/questions/ask"</strong>. I used the following code and able to get in the form of 192.X.X.X.</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="pln">  </span><span class="typ">Hashtable</span><span class="pln"> env </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Hashtable</span><span class="pun">();</span><span class="pln">
+  env</span><span class="pun">.</span><span class="pln">put</span><span class="pun">(</span><span class="typ">Context</span><span class="pun">.</span><span class="pln">INITIAL_CONTEXT_FACTORY</span><span class="pun">,</span><span class="pln"> </span><span class="str">"com.sun.jndi.dns.DnsContextFactory"</span><span class="pun">);</span><span class="pln">
+  </span><span class="typ">DirContext</span><span class="pln"> ictx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">InitialDirContext</span><span class="pun">(</span><span class="pln">env</span><span class="pun">);</span><span class="pln">
+  </span><span class="typ">String</span><span class="pln"> dnsServers </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">String</span><span class="pun">)</span><span class="pln"> ictx</span><span class="pun">.</span><span class="pln">getEnvironment</span><span class="pun">().</span><span class="pln">get</span><span class="pun">(</span><span class="str">"java.naming.provider.url"</span><span class="pun">);</span><span class="pln">
+
+  </span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"DNS Servers: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> dnsServers </span><span class="pun">);</span><span class="pln"> </span></code></pre>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/java" class="post-tag js-gps-track" title="show questions tagged &#39;java&#39;" rel="tag">java</a> <a href="https://stackoverflow.com/questions/tagged/dns" class="post-tag js-gps-track" title="show questions tagged &#39;dns&#39;" rel="tag">dns</a> 
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/q/7097623/2605933" title="short permalink to this question" class="short-link" id="link-post-7097623">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/7097623/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="7097623">flag</a></div>        
+    </div>
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/7097623/revisions" title="show all edits to this post">edited <span title="2011-08-17 18:35:15Z" class="relativetime">Aug 17 '11 at 18:35</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/189950/kirk-woll"><div class="gravatar-wrapper-32"><img src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/1c322903e59543003a482710cc4b5cda" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/189950/kirk-woll">Kirk Woll</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 57,218" dir="ltr">57.2k</span><span title="15 gold badges"><span class="badge1"></span><span class="badgecount">15</span></span><span title="152 silver badges"><span class="badge2"></span><span class="badgecount">152</span></span><span title="169 bronze badges"><span class="badge3"></span><span class="badgecount">169</span></span>
+        </div>
+    </div>
+</div>    </div>
+    <div class="post-signature owner grid--cell fl0">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2011-08-17 18:26:55Z" class="relativetime">Aug 17 '11 at 18:26</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/718861/manikandan"><div class="gravatar-wrapper-32"><img src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/WBIGS.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/718861/manikandan">Manikandan</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,671</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="37 silver badges"><span class="badge2"></span><span class="badgecount">37</span></span><span title="79 bronze badges"><span class="badge3"></span><span class="badgecount">79</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+
+                
+    <div class="post-layout--right">
+	    <div id="comments-7097623" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+
+    <li id="comment-8498937" class="comment js-comment " data-comment-id="8498937">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                <div class="comment-voting">
+                        <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                </div>
+                            <div class="comment-flagging">
+                        <a class="comment-flag" title="Flag this comment for serious problems or moderator attention">flag</a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What is the question? Did it work or did it give you an error? What was the error?</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/210526/unholysampler" title="12,998 reputation" class="comment-user">unholysampler</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#comment8498937_7097623"><span title="2011-08-17 18:30:30Z" class="relativetime-clean">Aug 17 '11 at 18:30</span></a></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-8498983" class="comment js-comment " data-comment-id="8498983">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                <div class="comment-voting">
+                        <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                </div>
+                            <div class="comment-flagging">
+                        <a class="comment-flag" title="Flag this comment for serious problems or moderator attention">flag</a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@ unholysampler : I need to get the dns address in words..like www.google.com. This code gives in the form of subnet.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/718861/manikandan" title="1,671 reputation" class="comment-user owner">Manikandan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#comment8498983_7097623"><span title="2011-08-17 18:32:52Z" class="relativetime-clean">Aug 17 '11 at 18:32</span></a></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-7097623" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-7097623">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments." href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" onclick=""></a>
+        </div>         
+    </div>              <div class="bounty-notification post-layout--right">
+          <div style="margin-top:20px">
+            <a class="bounty-link bounty" title="offer some of your reputation for better answers">
+                start a bounty
+            </a>
+          </div>
+          </div>
+    </div>
+</div>
+
+            <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2 data-answercount="3">
+                                3 Answers
+                                <span style="display:none;" itemprop="answerCount">3</span>
+                        </h2>
+                        <div>
+                            
+<div id="tabs">
+        <a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere " href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+    </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+  
+<a name="7097849"></a>
+<div id="answer-7097849" class="answer" data-answerid="7097849" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="7097849">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">14</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="typ">InetAddress</span><span class="pln"> ia </span><span class="pun">=</span><span class="pln"> </span><span class="typ">InetAddress</span><span class="pun">.</span><span class="pln">getByAddress</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">byte</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">{</span><span class="lit">74</span><span class="pun">,</span><span class="lit">125</span><span class="pun">,</span><span class="lit">127</span><span class="pun">,</span><span class="lit">106</span><span class="pun">});</span><span class="pln">
+</span><span class="com">// or </span><span class="pln">
+ia </span><span class="pun">=</span><span class="pln"> </span><span class="typ">InetAddress</span><span class="pun">.</span><span class="pln">getByName</span><span class="pun">(</span><span class="str">"74.125.127.106"</span><span class="pun">);</span><span class="pln">
+</span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">ia</span><span class="pun">.</span><span class="pln">getCanonicalHostName</span><span class="pun">());</span></code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/7097849/2605933" title="short permalink to this answer" class="short-link" id="link-post-7097849">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/7097849/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="7097849">flag</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-08-17 18:48:07Z" class="relativetime">Aug 17 '11 at 18:48</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/64044/clint"><div class="gravatar-wrapper-32"><img src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/1415fb8e157655d397bd0c2b520df5e9" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/64044/clint">Clint</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">7,934</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="21 silver badges"><span class="badge2"></span><span class="badgecount">21</span></span><span title="30 bronze badges"><span class="badge3"></span><span class="badgecount">30</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-7097849" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+
+    <li id="comment-8509083" class="comment js-comment " data-comment-id="8509083">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                <div class="comment-voting">
+                        <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                </div>
+                            <div class="comment-flagging">
+                        <a class="comment-flag" title="Flag this comment for serious problems or moderator attention">flag</a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I give 216,239,51,99 in the byte[]. It asked me to type caste to byte for the first two(216 and 239). I type caste it. It prints 216.239.51.99 only not in words.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/718861/manikandan" title="1,671 reputation" class="comment-user owner">Manikandan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#comment8509083_7097849"><span title="2011-08-18 08:48:51Z" class="relativetime-clean">Aug 18 '11 at 8:48</span></a></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-8538585" class="comment js-comment " data-comment-id="8538585">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+            </div>
+                <div class="comment-voting">
+                        <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                </div>
+                            <div class="comment-flagging">
+                        <a class="comment-flag" title="Flag this comment for serious problems or moderator attention">flag</a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Jack if you have linux/mac box and use dig -x 216.239.51.99 you will see that there is no answer for that number.  That means there is no entry in DNS for it.  That is why you get the number back in response.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/64044/clint" title="7,934 reputation" class="comment-user">Clint</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#comment8538585_7097849"><span title="2011-08-19 16:48:09Z" class="relativetime-clean">Aug 19 '11 at 16:48</span></a></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-7097849" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-7097849">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="8402645"></a>
+<div id="answer-8402645" class="answer" data-answerid="8402645" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="8402645">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>I have taken the code linked to by @Sam DeHaan, cleaned it up a bit and tested it.</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="com">/**
+ * Do a reverse DNS lookup to find the host name associated with an IP address. Gets results more often than
+ * {@link java.net.InetAddress#getCanonicalHostName()}, but also tries the Inet implementation if reverse DNS does
+ * not work.
+ * 
+ * Based on code found at http://www.codingforums.com/showpost.php?p=892349&amp;postcount=5
+ * 
+ * @param ip The IP address to look up
+ * @return   The host name, if one could be found, or the IP address
+ */</span><span class="pln">
+</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getHostName</span><span class="pun">(</span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> ip</span><span class="pun">)</span><span class="pln">
+ </span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">String</span><span class="pln"> retVal </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> bytes </span><span class="pun">=</span><span class="pln"> ip</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">"\\."</span><span class="pun">);</span><span class="pln">
+   </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">bytes</span><span class="pun">.</span><span class="pln">length </span><span class="pun">==</span><span class="pln"> </span><span class="lit">4</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">final</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Hashtable</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> env </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Hashtable</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pun">&gt;();</span><span class="pln">
+         env</span><span class="pun">.</span><span class="pln">put</span><span class="pun">(</span><span class="str">"java.naming.factory.initial"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"com.sun.jndi.dns.DnsContextFactory"</span><span class="pun">);</span><span class="pln">
+         </span><span class="kwd">final</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.</span><span class="pln">directory</span><span class="pun">.</span><span class="typ">DirContext</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.</span><span class="pln">directory</span><span class="pun">.</span><span class="typ">InitialDirContext</span><span class="pun">(</span><span class="pln">env</span><span class="pun">);</span><span class="pln">
+         </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> reverseDnsDomain </span><span class="pun">=</span><span class="pln"> bytes</span><span class="pun">[</span><span class="lit">3</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"."</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> bytes</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"."</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> bytes</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"."</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> bytes</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">".in-addr.arpa"</span><span class="pun">;</span><span class="pln">
+         </span><span class="kwd">final</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.</span><span class="pln">directory</span><span class="pun">.</span><span class="typ">Attributes</span><span class="pln"> attrs </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">getAttributes</span><span class="pun">(</span><span class="pln">reverseDnsDomain</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">[]</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            </span><span class="str">"PTR"</span><span class="pun">,</span><span class="pln">
+         </span><span class="pun">});</span><span class="pln">
+         </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">final</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.</span><span class="typ">NamingEnumeration</span><span class="pun">&lt;?</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.</span><span class="pln">directory</span><span class="pun">.</span><span class="typ">Attribute</span><span class="pun">&gt;</span><span class="pln"> ae </span><span class="pun">=</span><span class="pln"> attrs</span><span class="pun">.</span><span class="pln">getAll</span><span class="pun">();</span><span class="pln"> ae</span><span class="pun">.</span><span class="pln">hasMoreElements</span><span class="pun">();)</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">final</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.</span><span class="pln">directory</span><span class="pun">.</span><span class="typ">Attribute</span><span class="pln"> attr </span><span class="pun">=</span><span class="pln"> ae</span><span class="pun">.</span><span class="pln">next</span><span class="pun">();</span><span class="pln">
+            </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> attrId </span><span class="pun">=</span><span class="pln"> attr</span><span class="pun">.</span><span class="pln">getID</span><span class="pun">();</span><span class="pln">
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">final</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Enumeration</span><span class="pun">&lt;?&gt;</span><span class="pln"> vals </span><span class="pun">=</span><span class="pln"> attr</span><span class="pun">.</span><span class="pln">getAll</span><span class="pun">();</span><span class="pln"> vals</span><span class="pun">.</span><span class="pln">hasMoreElements</span><span class="pun">();)</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="typ">String</span><span class="pln"> value </span><span class="pun">=</span><span class="pln"> vals</span><span class="pun">.</span><span class="pln">nextElement</span><span class="pun">().</span><span class="pln">toString</span><span class="pun">();</span><span class="pln">
+               </span><span class="com">// System.out.println(attrId + ": " + value);</span><span class="pln">
+
+               </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="str">"PTR"</span><span class="pun">.</span><span class="pln">equals</span><span class="pun">(</span><span class="pln">attrId</span><span class="pun">))</span><span class="pln">
+               </span><span class="pun">{</span><span class="pln">
+                  </span><span class="kwd">final</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> len </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">.</span><span class="pln">length</span><span class="pun">();</span><span class="pln">
+                  </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">value</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">len </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">)</span><span class="pln">
+                  </span><span class="pun">{</span><span class="pln">
+                     </span><span class="com">// Strip out trailing period</span><span class="pln">
+                     value </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> len </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+                  </span><span class="pun">}</span><span class="pln">
+                  retVal </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+         ctx</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">final</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.</span><span class="typ">NamingException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         </span><span class="com">// No reverse DNS that we could find, try with InetAddress</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">print</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"> </span><span class="com">// NO-OP</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">null</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> retVal</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         retVal </span><span class="pun">=</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">net</span><span class="pun">.</span><span class="typ">InetAddress</span><span class="pun">.</span><span class="pln">getByName</span><span class="pun">(</span><span class="pln">ip</span><span class="pun">).</span><span class="pln">getCanonicalHostName</span><span class="pun">();</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">final</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">net</span><span class="pun">.</span><span class="typ">UnknownHostException</span><span class="pln"> e1</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         retVal </span><span class="pun">=</span><span class="pln"> ip</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">return</span><span class="pln"> retVal</span><span class="pun">;</span><span class="pln">
+ </span><span class="pun">}</span></code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/8402645/2605933" title="short permalink to this answer" class="short-link" id="link-post-8402645">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/8402645/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="8402645">flag</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-12-06 15:43:55Z" class="relativetime">Dec 6 '11 at 15:43</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/686041/konstantin-naryshkin"><div class="gravatar-wrapper-32"><img src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/8806ed47e4a4eb17222a237dfd9d880d" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/686041/konstantin-naryshkin">Konstantin Naryshkin</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,203</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="21 silver badges"><span class="badge2"></span><span class="badgecount">21</span></span><span title="38 bronze badges"><span class="badge3"></span><span class="badgecount">38</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-8402645" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+
+    <li id="comment-81625912" class="comment js-comment " data-comment-id="81625912">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+            </div>
+                <div class="comment-voting">
+                        <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                </div>
+                            <div class="comment-flagging">
+                        <a class="comment-flag" title="Flag this comment for serious problems or moderator attention">flag</a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It's important to note that it isn't always possible to do a reverse lookup because the data isn't always there in DNS.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/9910/kc-baltz" title="902 reputation" class="comment-user">KC Baltz</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#comment81625912_8402645"><span title="2017-11-16 18:49:02Z" class="relativetime-clean">Nov 16 '17 at 18:49</span></a></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-8402645" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-8402645">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="7097768"></a>
+<div id="answer-7097768" class="answer" data-answerid="7097768" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="7097768">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p><a href="http://www.codingforums.com/showthread.php?t=182959" rel="noreferrer">CodingForums similar question</a> -- see post #5 (DISCLAIMER: Code is not mine, not tested by me)</p>
+
+<hr>
+
+<p>Code from linked source:</p>
+
+<pre class="lang-java prettyprint prettyprinted" style=""><code><span class="com">/**
+ * 25 Nov 2009 REVERSE DNS LOOKUP USING JNDI
+ * In this example the IP being looked up is 211.21.152.4
+ * The octets are reversed (4.152.21.211)
+ * and appended to the in-addr.arpa zone:
+ * 4.152.21.211.in-addr.arpa
+ */</span><span class="pln">
+
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">naming</span><span class="pun">.</span><span class="pln">directory</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.*;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> dns    </span><span class="pun">{</span><span class="pln"> 
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln"> 
+        </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">Hashtable</span><span class="pln"> env </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Hashtable</span><span class="pun">();</span><span class="pln">
+            env</span><span class="pun">.</span><span class="pln">put</span><span class="pun">(</span><span class="str">"java.naming.factory.initial"</span><span class="pun">,</span><span class="str">"com.sun.jndi.dns.DnsContextFactory"</span><span class="pun">);</span><span class="pln">
+
+            </span><span class="typ">DirContext</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">InitialDirContext</span><span class="pun">(</span><span class="pln">env</span><span class="pun">);</span><span class="pln">
+            </span><span class="typ">Attributes</span><span class="pln"> attrs </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">getAttributes</span><span class="pun">(</span><span class="str">"4.152.21.211.in-addr.arpa"</span><span class="pun">,</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">{</span><span class="str">"PTR"</span><span class="pun">});</span><span class="pln">
+
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="typ">NamingEnumeration</span><span class="pln"> ae </span><span class="pun">=</span><span class="pln"> attrs</span><span class="pun">.</span><span class="pln">getAll</span><span class="pun">();</span><span class="pln">ae</span><span class="pun">.</span><span class="pln">hasMoreElements</span><span class="pun">();)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="typ">Attribute</span><span class="pln"> attr </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Attribute</span><span class="pun">)</span><span class="pln">ae</span><span class="pun">.</span><span class="pln">next</span><span class="pun">();</span><span class="pln">
+                </span><span class="typ">String</span><span class="pln"> attrId </span><span class="pun">=</span><span class="pln"> attr</span><span class="pun">.</span><span class="pln">getID</span><span class="pun">();</span><span class="pln">
+                </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Enumeration</span><span class="pln"> vals </span><span class="pun">=</span><span class="pln"> attr</span><span class="pun">.</span><span class="pln">getAll</span><span class="pun">();</span><span class="pln">vals</span><span class="pun">.</span><span class="pln">hasMoreElements</span><span class="pun">();</span><span class="pln">
+                </span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">attrId </span><span class="pun">+</span><span class="pln"> </span><span class="str">": "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> vals</span><span class="pun">.</span><span class="pln">nextElement</span><span class="pun">()));</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            ctx</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">   
+
+        </span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">System</span><span class="pun">.</span><span class="pln">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"NO REVERSE DNS"</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/7097768/2605933" title="short permalink to this answer" class="short-link" id="link-post-7097768">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/7097768/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="7097768">flag</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/7097768/revisions" title="show all edits to this post">edited <span title="2011-12-08 22:29:55Z" class="relativetime">Dec 8 '11 at 22:29</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-08-17 18:41:00Z" class="relativetime">Aug 17 '11 at 18:41</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/866193/sam-dehaan"><div class="gravatar-wrapper-32"><img src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/37c792bcab875140fc2898cf07740492" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/866193/sam-dehaan">Sam DeHaan</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">8,582</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="27 silver badges"><span class="badge2"></span><span class="badgecount">27</span></span><span title="40 bronze badges"><span class="badge3"></span><span class="badgecount">40</span></span>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-7097768" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+
+    <li id="comment-28680496" class="comment js-comment " data-comment-id="28680496">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+            </div>
+                <div class="comment-voting">
+                        <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                </div>
+                            <div class="comment-flagging">
+                        <a class="comment-flag" title="Flag this comment for serious problems or moderator attention">flag</a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks. Best answer since you can define your own dns as: env.put(Context.PROVIDER_URL, "dns://" + DNS_SERVER_IP) and many other options for the initial context.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/1924081/dalvarezmartinez1" title="783 reputation" class="comment-user">dalvarezmartinez1</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#comment28680496_7097768"><span title="2013-10-14 09:14:33Z" class="relativetime-clean">Oct 14 '13 at 9:14</span></a></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-7097768" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-7097768">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+                                    <a name="new-answer"></a>
+                        <form id="post-form" action="https://stackoverflow.com/questions/7097623/answer/submit" method="post" class="post-form">
+                            <input type="hidden" id="post-id" value="7097623">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.co.in/">
+                            <h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: false,
+                showLowRepImageUploadWarning: false,
+                reputationToPostImages: null,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: false,
+                    discardSelector: ".discard-answer"
+                    ,userId:2605933
+                    });
+                
+
+        }
+    });
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;"> 
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li class="wmd-button" id="wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B"><span style="background-position: 0px 0px;"></span></li><li class="wmd-button" id="wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I"><span style="background-position: -20px 0px;"></span></li><li class="wmd-spacer wmd-spacer1" id="wmd-spacer1"></li><li class="wmd-button" id="wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L"><span style="background-position: -40px 0px;"></span></li><li class="wmd-button" id="wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q"><span style="background-position: -60px 0px;"></span></li><li class="wmd-button" id="wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K"><span style="background-position: -80px 0px;"></span></li><li class="wmd-button" id="wmd-image-button" title="Image &lt;img&gt; Ctrl+G"><span style="background-position: -100px 0px;"></span></li><li class="wmd-button wmd-snippet-button" id="wmd-snippet-button" title="JavaScript/HTML/CSS snippet Ctrl-M"><span style="background-image: url(&quot;/content/Shared/balsamiq/wmd-mockup-button.png&quot;);"></span></li><li class="wmd-spacer wmd-spacer2" id="wmd-spacer2"></li><li class="wmd-button" id="wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O"><span style="background-position: -120px 0px;"></span></li><li class="wmd-button" id="wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U"><span style="background-position: -140px 0px;"></span></li><li class="wmd-button" id="wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H"><span style="background-position: -160px 0px;"></span></li><li class="wmd-button" id="wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R"><span style="background-position: -180px 0px;"></span></li><li class="wmd-spacer wmd-spacer3" id="wmd-spacer3"></li><li class="wmd-button" id="wmd-undo-button" title="Undo - Ctrl+Z"><span style="background-position: -200px -20px;"></span></li><li class="wmd-button" id="wmd-redo-button" title="Redo - Ctrl+Y"><span style="background-position: -220px -20px;"></span></li><li class="wmd-spacer wmd-spacer-max"></li><li class="wmd-button wmd-help-button" id="wmd-help-button" title="Markdown Editing Help" style="right: 0px;"><span style="background-position: -240px 0px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input processed" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        <div class="grippie" style="margin-right: 0px;"></div></div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+    <div class="community-option g-row ai-center f-checkbox">
+        <div class="g-col -input">
+            <input id="communitymode" name="communitymode" type="checkbox">
+        </div>
+        <div class="g-col">
+            <label for="communitymode" class="f-label _small" title="Marking an answer community wiki encourages others to edit it by lowering the reputation barrier required to edit. However, you will not gain any upvote reputation from it. This cannot be undone.">community wiki</label>
+        </div>
+    </div>
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="c33a7c60fc2b3820da0f7ad07e625fde745b3f78596959a6a19b9bb8f555e384">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+
+                            <div style="position: relative;">
+                                
+                                
+                            </div>
+
+                                                            <div class="form-submit cbt">
+                                        <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+                                    <a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="btn-clear discard-answer dno">discard</a>
+                                </div>
+                        </form>
+
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?                            Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/java" class="post-tag" title="show questions tagged &#39;java&#39;" rel="tag">java</a> <a href="https://stackoverflow.com/questions/tagged/dns" class="post-tag" title="show questions tagged &#39;dns&#39;" rel="tag">dns</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tbody><tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2011-08-17 18:26:55Z"><b>6 years, 7 months ago</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>16,094 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645?lastactivity" class="lastactivity-link" title="2011-12-08 22:29:55Z">6 years, 3 months ago</a></b></p>
+                                </td>
+                            </tr>
+                    </tbody></table>
+                </div>
+            <div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Blog
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://stackoverflow.blog/2018/03/27/quantum-computing-site-launches-with-the-help-of-strangeworks/?cb=1" class="question-hyperlink" data-ga="[&quot;Community Bulletin Board&quot;,&quot;Blog&quot;,&quot;https://stackoverflow.blog/2018/03/27/quantum-computing-site-launches-with-the-help-of-strangeworks/&quot;,null,null]">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://stackoverflow.blog/2018/03/27/quantum-computing-site-launches-with-the-help-of-strangeworks/?cb=1" class="question-hyperlink" data-ga="[&quot;Community Bulletin Board&quot;,&quot;Blog&quot;,&quot;https://stackoverflow.blog/2018/03/27/quantum-computing-site-launches-with-the-help-of-strangeworks/&quot;,null,null]">Quantum Computing Site Launches with the Help of Strangeworks</a>
+        </div>
+        <br class="cbt">
+    </div>
+                <div class="bulletin-title">
+                    Featured on Meta
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://meta.stackoverflow.com/questions/365198/spring-2018-community-moderator-election-results?cb=1" class="question-hyperlink" data-ga="[&quot;Community Bulletin Board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/365198/spring-2018-community-moderator-election-results&quot;,null,null]">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>                </a>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://meta.stackoverflow.com/questions/365198/spring-2018-community-moderator-election-results?cb=1" class="question-hyperlink" data-ga="[&quot;Community Bulletin Board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/365198/spring-2018-community-moderator-election-results&quot;,null,null]">Spring 2018 Community Moderator Election RESULTS</a>
+        </div>
+        <br class="cbt">
+    </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://meta.stackoverflow.com/questions/364145/coming-soon-stack-overflow-for-teams?cb=1" class="question-hyperlink" data-ga="[&quot;Community Bulletin Board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/364145/coming-soon-stack-overflow-for-teams&quot;,null,null]">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>                </a>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://meta.stackoverflow.com/questions/364145/coming-soon-stack-overflow-for-teams?cb=1" class="question-hyperlink" data-ga="[&quot;Community Bulletin Board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/364145/coming-soon-stack-overflow-for-teams&quot;,null,null]">Coming Soon: Stack Overflow For Teams!</a>
+        </div>
+        <br class="cbt">
+    </div>
+                <div class="bulletin-title">
+                    Hot Meta Posts
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">4</span>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://meta.stackoverflow.com/questions/365267/is-kernighan-and-ritchie-a-valid-tag-on-stack-overflow?cb=1" class="question-hyperlink" data-ga="[&quot;Community Bulletin Board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/365267/is-kernighan-and-ritchie-a-valid-tag-on-stack-overflow&quot;,null,null]">Is [kernighan-and-ritchie] a valid tag on Stack Overflow?</a>
+        </div>
+        <br class="cbt">
+    </div>
+    </div>
+</div>            
+<div id="dfp-tsb" class="everyonelovesstackoverflow" style="display: none;"></div>
+            <div id="hireme" class="blue tagged tex2jax_ignore x-rem clc-jobs-multi"><a class="top " href="https://stackoverflow.com/jobs/remote-developer-jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=10439&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2Fremote-developer-jobs%3Fmed=clc&amp;sig=OtONdgvb8OkO0A"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46"><g fill="#FFF"><path d="M33.35 25.265H11.955c-3.036.182-5.642-2.15-5.823-5.211-.18-3.06 2.133-5.69 5.168-5.871.323-4.711 3.746-8.615 8.343-9.514 4.597-.9 9.22 1.43 11.266 5.677a7.54 7.54 0 0 1 7.96 2.15 7.694 7.694 0 0 1 1.313 8.204 7.58 7.58 0 0 1-6.887 4.565h.055z" opacity=".3"></path><path d="M39.181 18.453a7.301 7.301 0 0 0-1.245-7.784 7.148 7.148 0 0 0-7.546-2.04.392.392 0 0 1-.477-.205c-1.948-4.128-6.418-6.405-10.868-5.536-4.45.87-7.755 4.664-8.035 9.229a.393.393 0 0 1-.368.368c-2.819.169-4.968 2.611-4.8 5.456.168 2.844 2.59 5.011 5.43 4.841h21.381a7.188 7.188 0 0 0 6.528-4.33zm-.66-8.309a8.087 8.087 0 0 1 1.38 8.624 7.973 7.973 0 0 1-7.244 4.8h-21.36c-3.253.194-6.045-2.305-6.239-5.581-.186-3.16 2.113-5.892 5.194-6.256.44-4.77 3.95-8.698 8.643-9.614 4.692-.916 9.404 1.407 11.578 5.667 2.9-.81 6.019.095 8.048 2.36z"></path><path d="M18.948 5.75l.614-.151a.393.393 0 0 0-.188-.763l-.613.151a.393.393 0 0 0 .187.763zm-4.977 5.15a7.252 7.252 0 0 1 2.807-4.083.393.393 0 0 0-.456-.64 8.038 8.038 0 0 0-3.11 4.525.393.393 0 0 0 .759.198zm14.841 18.6v7.659a2.346 2.346 0 0 1-2.335 2.357h-9.695a2.346 2.346 0 0 1-2.335-2.357V29.5a.393.393 0 1 0-.785 0v7.659c0 1.735 1.396 3.143 3.12 3.143h9.695c1.724 0 3.12-1.408 3.12-3.143V29.5a.393.393 0 1 0-.785 0z"></path><path d="M16.904 29.431v-6.256a.393.393 0 1 0-.785 0v6.256a.393.393 0 1 0 .785 0zm9.419 0v-6.256a.393.393 0 1 0-.785 0v6.256a.393.393 0 1 0 .785 0zm-4.7 8.052c-.978 0-1.77-.798-1.77-1.782 0-.983.792-1.781 1.77-1.781s1.77.798 1.77 1.781c0 .984-.792 1.782-1.77 1.782zm0-.786a.99.99 0 0 0 .985-.996.99.99 0 0 0-.985-.996.99.99 0 0 0-.985.996c0 .55.441.996.985.996z"></path><path d="M11.955 29.631h19.322a.393.393 0 0 0 0-.786H11.955a.393.393 0 0 0 0 .786zm28.295 8.455h-2.073c-1.723 0-3.12 1.408-3.12 3.143v1.375a2.346 2.346 0 0 1-2.334 2.357h-8.346a2.346 2.346 0 0 1-2.335-2.357v-2.75a.393.393 0 1 0-.784 0v2.75c0 1.735 1.396 3.143 3.12 3.143h8.345c1.723 0 3.12-1.408 3.12-3.143v-1.375a2.346 2.346 0 0 1 2.334-2.357h2.073a.393.393 0 0 0 0-.786z"></path></g></svg><span>Work from anywhere</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="JavaScript Engineer at INFINUM. Click to learn more." href="https://stackoverflow.com/jobs/169164/javascript-engineer-infinum" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=322470&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F169164%2Fjavascript-engineer-infinum%3Fmed=clc&amp;sig=uP6K-bMqbtGkYg"><div class="title">JavaScript Engineer</div><div><span class="company">INFINUM</span><span class="location"><svg viewBox="0 0 12 12"><path d="M6 5.7c.4 0 .7-.1.9-.4.3-.3.4-.6.4-.9 0-.4-.1-.7-.4-.9-.2-.3-.5-.4-.9-.4s-.7.1-.9.4c-.3.2-.4.5-.4.9s.1.7.4.9c.2.3.5.4.9.4zm0-5c1 0 1.9.4 2.6 1.1.7.7 1.1 1.6 1.1 2.6 0 .5-.1 1.1-.4 1.8s-.5 1.3-.9 1.9c-.4.5-.7 1.1-1.1 1.6-.4.5-.7.9-.9 1.2l-.4.4c-.1-.1-.2-.3-.4-.5s-.5-.6-.9-1.2c-.4-.5-.8-1-1.1-1.6s-.7-1.1-.9-1.8c-.3-.7-.4-1.3-.4-1.8 0-1 .4-1.9 1.1-2.6S5 .7 6 .7z"></path></svg><span>Zagreb, Croatia</span></span></div><div class="opts"><span class="opt remote"><svg viewBox="0 0 12 12"><path d="M6 9.8L3.9 7.7c1.3-.9 3-.9 4.2 0L6 9.8zm3-3a4.81 4.81 0 0 0-6 0L2.2 6c2.2-1.8 5.5-1.8 7.7 0l-.9.8zm1.7-1.7a7.27 7.27 0 0 0-9.4 0l-.9-.8c3.2-2.8 7.9-2.8 11.1 0l-.8.8z"></path></svg><span>Remote</span></span></div><span class="post-tag">javascript</span><span class="post-tag">jquery</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=322470&amp;ct=-1&amp;sig=qtiVT9Uu8Ol9jw" data-clc-meta-target="-1"><svg viewBox="0 0 13.6 13.6"><path d="M11.4 2.3C8.9-.2 4.8-.2 2.3 2.3s-2.5 6.6 0 9.1 6.6 2.5 9.1 0 2.5-6.6 0-9.1zM8.6 9.5L6.8 7.7 5 9.5l-.9-.9 1.8-1.8L4.1 5l.9-.9 1.8 1.8 1.8-1.8.9.9-1.8 1.8 1.8 1.8-.9.9z"></path></svg><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Senior full-stack javascript developer [React/Node.js] at Aula. Click to learn more." href="https://stackoverflow.com/jobs/162940/senior-full-stack-javascript-developer-react-aula" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=313874&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F162940%2Fsenior-full-stack-javascript-developer-react-aula%3Fmed=clc&amp;sig=qsNHTBDz-mT8TQ"><div class="title">Senior full-stack javascript developer [React/Node.js]</div><div><span class="company">Aula</span><span class="location"><svg viewBox="0 0 12 12"><path d="M6 5.7c.4 0 .7-.1.9-.4.3-.3.4-.6.4-.9 0-.4-.1-.7-.4-.9-.2-.3-.5-.4-.9-.4s-.7.1-.9.4c-.3.2-.4.5-.4.9s.1.7.4.9c.2.3.5.4.9.4zm0-5c1 0 1.9.4 2.6 1.1.7.7 1.1 1.6 1.1 2.6 0 .5-.1 1.1-.4 1.8s-.5 1.3-.9 1.9c-.4.5-.7 1.1-1.1 1.6-.4.5-.7.9-.9 1.2l-.4.4c-.1-.1-.2-.3-.4-.5s-.5-.6-.9-1.2c-.4-.5-.8-1-1.1-1.6s-.7-1.1-.9-1.8c-.3-.7-.4-1.3-.4-1.8 0-1 .4-1.9 1.1-2.6S5 .7 6 .7z"></path></svg><span>No office location</span></span></div><div class="opts"><span class="opt salary"><span>£50k - £80k</span></span><span class="opt remote"><svg viewBox="0 0 12 12"><path d="M6 9.8L3.9 7.7c1.3-.9 3-.9 4.2 0L6 9.8zm3-3a4.81 4.81 0 0 0-6 0L2.2 6c2.2-1.8 5.5-1.8 7.7 0l-.9.8zm1.7-1.7a7.27 7.27 0 0 0-9.4 0l-.9-.8c3.2-2.8 7.9-2.8 11.1 0l-.8.8z"></path></svg><span>Remote</span></span></div><span class="post-tag">javascript</span><span class="post-tag">node.js</span><div> <p class="job-badge job-badge-high-response"><svg viewBox="0 0 24 24"><path d="M0 17.83l8.9-9.5 4.8 5.1 5.82-6.25-2.71-2.91h7.34v7.76l-2.86-3-7.6 8-4.77-5.1-7.2 7.7z"></path></svg>High response rate</p></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=313874&amp;ct=-1&amp;sig=ZYIUP_3fE-y4Mw" data-clc-meta-target="-1"><svg viewBox="0 0 13.6 13.6"><path d="M11.4 2.3C8.9-.2 4.8-.2 2.3 2.3s-2.5 6.6 0 9.1 6.6 2.5 9.1 0 2.5-6.6 0-9.1zM8.6 9.5L6.8 7.7 5 9.5l-.9-.9 1.8-1.8L4.1 5l.9-.9 1.8 1.8 1.8-1.8.9.9-1.8 1.8 1.8 1.8-.9.9z"></path></svg><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Web developer at Nolte. Click to learn more." href="https://stackoverflow.com/jobs/167822/web-developer-nolte" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=316902&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F167822%2Fweb-developer-nolte%3Fmed=clc&amp;sig=xMnWZb_UoN4gVg"><div class="title">Web developer</div><div><span class="company">Nolte</span><span class="location"><svg viewBox="0 0 12 12"><path d="M6 5.7c.4 0 .7-.1.9-.4.3-.3.4-.6.4-.9 0-.4-.1-.7-.4-.9-.2-.3-.5-.4-.9-.4s-.7.1-.9.4c-.3.2-.4.5-.4.9s.1.7.4.9c.2.3.5.4.9.4zm0-5c1 0 1.9.4 2.6 1.1.7.7 1.1 1.6 1.1 2.6 0 .5-.1 1.1-.4 1.8s-.5 1.3-.9 1.9c-.4.5-.7 1.1-1.1 1.6-.4.5-.7.9-.9 1.2l-.4.4c-.1-.1-.2-.3-.4-.5s-.5-.6-.9-1.2c-.4-.5-.8-1-1.1-1.6s-.7-1.1-.9-1.8c-.3-.7-.4-1.3-.4-1.8 0-1 .4-1.9 1.1-2.6S5 .7 6 .7z"></path></svg><span>Ciudad de México, Mexico</span></span></div><div class="opts"><span class="opt salary"><span>$18k - $30k</span></span><span class="opt remote"><svg viewBox="0 0 12 12"><path d="M6 9.8L3.9 7.7c1.3-.9 3-.9 4.2 0L6 9.8zm3-3a4.81 4.81 0 0 0-6 0L2.2 6c2.2-1.8 5.5-1.8 7.7 0l-.9.8zm1.7-1.7a7.27 7.27 0 0 0-9.4 0l-.9-.8c3.2-2.8 7.9-2.8 11.1 0l-.8.8z"></path></svg><span>Remote</span></span></div><span class="post-tag">javascript</span><span class="post-tag">html</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=316902&amp;ct=-1&amp;sig=sBeD53UWKXAJ5Q" data-clc-meta-target="-1"><svg viewBox="0 0 13.6 13.6"><path d="M11.4 2.3C8.9-.2 4.8-.2 2.3 2.3s-2.5 6.6 0 9.1 6.6 2.5 9.1 0 2.5-6.6 0-9.1zM8.6 9.5L6.8 7.7 5 9.5l-.9-.9 1.8-1.8L4.1 5l.9-.9 1.8 1.8 1.8-1.8.9.9-1.8 1.8 1.8 1.8-.9.9z"></path></svg><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Front End Engineer - Angular2+ and Ionic2+ at Modus Create. Click to learn more." href="https://stackoverflow.com/jobs/168849/front-end-engineer-angular2-plus-and-ionic2-plus-modus-create" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=318738&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F168849%2Ffront-end-engineer-angular2-plus-and-ionic2-plus-modus-create%3Fmed=clc&amp;sig=Yp_jiRNAzwCVqA"><div class="title">Front End Engineer - Angular2+ and Ionic2+</div><div><span class="company">Modus Create</span><span class="location"><svg viewBox="0 0 12 12"><path d="M6 5.7c.4 0 .7-.1.9-.4.3-.3.4-.6.4-.9 0-.4-.1-.7-.4-.9-.2-.3-.5-.4-.9-.4s-.7.1-.9.4c-.3.2-.4.5-.4.9s.1.7.4.9c.2.3.5.4.9.4zm0-5c1 0 1.9.4 2.6 1.1.7.7 1.1 1.6 1.1 2.6 0 .5-.1 1.1-.4 1.8s-.5 1.3-.9 1.9c-.4.5-.7 1.1-1.1 1.6-.4.5-.7.9-.9 1.2l-.4.4c-.1-.1-.2-.3-.4-.5s-.5-.6-.9-1.2c-.4-.5-.8-1-1.1-1.6s-.7-1.1-.9-1.8c-.3-.7-.4-1.3-.4-1.8 0-1 .4-1.9 1.1-2.6S5 .7 6 .7z"></path></svg><span>No office location</span></span></div><div class="opts"><span class="opt salary"><span>$38k - $67k</span></span><span class="opt remote"><svg viewBox="0 0 12 12"><path d="M6 9.8L3.9 7.7c1.3-.9 3-.9 4.2 0L6 9.8zm3-3a4.81 4.81 0 0 0-6 0L2.2 6c2.2-1.8 5.5-1.8 7.7 0l-.9.8zm1.7-1.7a7.27 7.27 0 0 0-9.4 0l-.9-.8c3.2-2.8 7.9-2.8 11.1 0l-.8.8z"></path></svg><span>Remote</span></span></div><span class="post-tag">javascript</span><span class="post-tag">angularjs</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=318738&amp;ct=-1&amp;sig=gvc3AD2WpB3FKA" data-clc-meta-target="-1"><svg viewBox="0 0 13.6 13.6"><path d="M11.4 2.3C8.9-.2 4.8-.2 2.3 2.3s-2.5 6.6 0 9.1 6.6 2.5 9.1 0 2.5-6.6 0-9.1zM8.6 9.5L6.8 7.7 5 9.5l-.9-.9 1.8-1.8L4.1 5l.9-.9 1.8 1.8 1.8-1.8.9.9-1.8 1.8 1.8 1.8-.9.9z"></path></svg><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="x-rem-footer"><p>Work remotely - from home or wherever you choose.</p><a class="x-rem-cta" href="https://stackoverflow.com/jobs/remote-developer-jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=42pTNPPInHrVQ7de28-TiYll-qyNzBee7ma8_mPCywMeHGbZjB_9bgccD2SQZOjZwMDQYM_IyMAizXTmAce351zLrgsDxVMOnHA_Zmn3IN1emunKLo7ObVyTpkDE79jftrTSKwWKz7_OMekQ17PVEHHPL0csI75EAMVX3OP4d4pr0i6IuJ3ZccvAL9H2RpYsPgZMDKoMDAxcDFGsIbJMDJpgdjzrfG2YeACrhj6MHcp6tq9905-_aTweCwE&amp;cr=10439&amp;ct=2&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2Fremote-developer-jobs%3Fmed=clc&amp;sig=zQo-ey6t8z5byw">Browse remote jobs</a></li></ul></div><img src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/impression.gif" class="impression" style="display: none;"></div>
+<script>;(function(){var a=function(a){return document.getElementById(a)},b=function(b){return b='string'==typeof b?a(b):b,!!b&&'none'===getComputedStyle(b).display},c=function(a){return!b(a)},d=function(a){return!!a},e=function(a){for(var b=[],c=1;c<arguments.length;c++)b[c-1]=arguments[c];for(var d,e=0,f=b;e<f.length;e++)for(var g in d=f[e],d)a[g]=d[g];return a};window.clc=e(window.clc||{},{autoload:function(){'function'==typeof window.clc.load?window.clc.load():window.clc.cmd.push(function(a){return a.load()})},init:function(a){try{if(!a.allowed||!new RegExp(a.allowed).test(location.hostname))return;if(b('hireme'))return;window.clc.options&&(a=e(a,window.clc.options));var c=a.wv;if(document.hidden&&c){var d=function(){document.hidden||(window.clc.init(a),document.removeEventListener('visibilitychange',d))};return void document.addEventListener('visibilitychange',d)}window.clc.options=a,a.al&&window.clc.autoload();var f=/Trident/i.test(navigator.userAgent)?a.lib.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,'.ie$1.js$2'):a.lib,g=document.createElement('script');g.async=!0,g.src=f,document.body.appendChild(g)}catch(a){}}}),window.clc.cmd||(window.clc.cmd=[]),window.clc.loadDisplayAds=function(){var e="clc.stackoverflow.com",f={slots:{lb:[[728,90]],mlb:[[728,90]],sb:function(a){return'dfp-tsb'===a?[[300,250],[300,600]]:[[300,250]]},"tag-sponsorship":[[730,135]],"mobile/lb":[[320,50]]},ids:{"dfp-tlb":'lb',"dfp-mlb":'mlb',"dfp-tsb":'sb',"dfp-isb":'sb',"dfp-tag":'tag-sponsorship',"dfp-m-tlb":'mobile/lb',"clc-tlb":'lb',"clc-mlb":'mlb',"clc-tsb":'sb'}},g=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?'tag-pages':'question-pages',h=location.hostname;var i=[4385506061,4386578282,4386579572],j=function(a){a.style.height=a.style.maxHeight=a.style.minHeight='auto',a.style.display='none',[].forEach.call(a.children,j)},k=function(a){new Image().src='https://'+e+'/stalled.gif?'+a},l=function(){var a=document.createElement('div');a.className='adsbox',a.id='clc-abd',a.style.position='absolute',a.style.pointerEvents='none',a.innerHTML='&nbsp;',document.body.appendChild(a)},m=function(){return function(a){var b=a.serviceName,c=a.slot,d=a.lineItemId;try{var e=c.getSlotElementId(),f=[];e||f.push('id=0');var g=document.getElementById(e);if(!e||g?g.hasAttribute('data-clc-stalled')&&f.push('st=1'):f.push('el=0'),0!==f.length)return void k(f.join('&'));-1===i.indexOf(d)?g.setAttribute('data-clc-prefilled','true'):j(g),g.setAttribute('data-clc-ready','true')}catch(a){var h=document.querySelector('#dfp-tsb, #dfp-isb, #clc-tsb');h&&h.setAttribute('data-clc-ready','true'),k('e=1')}}},n=function(a){return function(){var b=window.googletag;l();var c=b.pubads();c.enableSingleRequest(),c.addEventListener('slotRenderEnded',m(a));var d=window.dfp_targeting||{};d&&Object.keys(d).forEach(function(a){c.setTargeting(a,d[a])});for(var e,i=0,j=a;i<j.length;i++){e=j[i],'dfp-isb'===e&&c.setTargeting('Sidebar',['Inline']),'dfp-tsb'===e&&c.setTargeting('Sidebar',['Right']);var k=f.ids[e],n=f.slots[k];'function'==typeof n&&(n=n(e));var o=b.defineSlot('/'+'248424177'+'/'+h+'/'+k+'/'+g,n,e);(window.clc.collapse_leaderboards||'tag-sponsorship'===k||'sb'===k)&&o.setCollapseEmptyDiv(!0,!0),o.addService(c),!1}b.enableServices();for(var e,p=0,q=a;p<q.length;p++)e=q[p],b.display(e)}};return function(e){e=e&&0<e.length?e:Object.keys(f.ids);var g=e.map(a).filter(d).filter(function(a){return /^\s*$/.test(a.innerHTML)}).filter(c).map(function(a){return a.id});if(e.map(a).filter(d).filter(b).forEach(j),0!==g.length){window.googletag=window.googletag||{},window.googletag.cmd=window.googletag.cmd||[],window.googletag.cmd.push(n(g));var h=document.createElement('script');h.async=!0,h.src='https://www.googletagservices.com/tag/js/gpt.js',document.body.appendChild(h)}}}()})(),window.clc.init({"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=7f4c0a18d7ae","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=905391554886","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false});</script>            <script>
+                window.clc_request='AmoXfSxpldUI0PIuABdNbAACAAAAAgAAAAMKAAAAfGphdmF8ZG5zfADESz9Zjiz9_zUp';                    clc.autoload();
+                var dfp_targeting={Registered:['true'],Reputation:['200'],'so-tag':['java','dns'],Persona:['FrontEnd']};                                    clc.loadDisplayAds();
+
+            </script>
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/10870022?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">-1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/10870022/finding-dns-name-with-given-ip-address?noredirect=1&amp;lq=1" class="question-hyperlink">Finding DNS name with given ip address</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/11319512?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/11319512/java-how-to-see-if-a-request-is-comming-from-a-certain-domain?noredirect=1&amp;lq=1" class="question-hyperlink">Java - How to see if a request is comming from a certain domain?</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/11577808?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">-2</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/11577808/how-to-generate-subnet-mask-for-ip-address-in-java?noredirect=1&amp;lq=1" class="question-hyperlink">How to generate subnet mask for IP Address in Java?</a>
+</div>			</div>
+</div>
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/185563?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/185563/updating-openldap-using-a-java-class?rq=1" class="question-hyperlink">Updating OpenLDAP using a Java class</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/604424?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1509</div></a><a href="https://stackoverflow.com/questions/604424/lookup-java-enum-by-string-value?rq=1" class="question-hyperlink">Lookup Java enum by string value</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/724043?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">313</div></a><a href="https://stackoverflow.com/questions/724043/http-url-address-encoding-in-java?rq=1" class="question-hyperlink">HTTP URL Address Encoding in Java</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/2553522?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">235</div></a><a href="https://stackoverflow.com/questions/2553522/interview-question-check-if-one-string-is-a-rotation-of-other-string?rq=1" class="question-hyperlink">Interview question: Check if one string is a rotation of other string</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/2642777?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">349</div></a><a href="https://stackoverflow.com/questions/2642777/trusting-all-certificates-using-httpclient-over-https?rq=1" class="question-hyperlink">Trusting all certificates using HttpClient over HTTPS</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/6481627?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">316</div></a><a href="https://stackoverflow.com/questions/6481627/java-security-illegal-key-size-or-default-parameters?rq=1" class="question-hyperlink">Java Security: Illegal key size or default parameters?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/7569335?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">327</div></a><a href="https://stackoverflow.com/questions/7569335/reverse-a-string-in-java?rq=1" class="question-hyperlink">Reverse a string in Java</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/9481865?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">203</div></a><a href="https://stackoverflow.com/questions/9481865/getting-the-ip-address-of-the-current-machine-using-java?rq=1" class="question-hyperlink">Getting the IP address of the current machine using Java</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/16448995?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">9</div></a><a href="https://stackoverflow.com/questions/16448995/get-mac-address-of-system-in-java?rq=1" class="question-hyperlink">Get MAC Address of System in Java</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/26080161?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">2</div></a><a href="https://stackoverflow.com/questions/26080161/querying-against-a-particular-dns-server-in-java?rq=1" class="question-hyperlink">querying against a particular dns server in java</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="https://space.stackexchange.com/questions/26271/why-is-there-a-need-for-getting-rid-of-iss-trash-using-the-empty-atv-and-similar" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is there a need for getting rid of ISS trash using the empty ATV and similar vehicles
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/395829/where-are-the-inaccuracies-in-the-bohr-model-of-the-atom" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where are the inaccuracies in the Bohr model of the atom?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/49547311/var-in-java-10-and-kotlin" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    “var” in java 10 and kotlin
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-vi" title="Vi and Vim Stack Exchange"></div><a href="https://vi.stackexchange.com/questions/15673/why-is-using-arrow-keys-in-normal-mode-considered-bad-practice" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:599 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is using arrow keys in normal mode considered bad practice?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2711754/can-the-product-of-infinitely-many-rational-numbers-be-irrational" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can the product of infinitely many rational numbers be irrational?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-philosophy" title="Philosophy Stack Exchange"></div><a href="https://philosophy.stackexchange.com/questions/50200/what-is-the-term-for-the-fallacy-strategy-of-ignoring-logical-reasoning-intended" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:265 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the term for the fallacy/strategy of ignoring logical reasoning intended to disprove a belief?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-cs" title="Computer Science Stack Exchange"></div><a href="https://cs.stackexchange.com/questions/89865/is-von-neumanns-randomness-in-sin-quote-no-longer-applicable" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:419 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is von Neumann's randomness in sin quote no longer applicable?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/93539/why-should-a-person-approaching-retirement-age-make-their-portfolio-less-risky" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why should a person approaching retirement age make their portfolio less risky?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="https://askubuntu.com/questions/1019942/echo-hello-0-file-txt-doesnt-write-to-file-txt" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    echo "hello" &gt;&amp;0 | &gt; file.txt doesn't write to file.txt
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/438821/is-there-a-name-for-mock-criticism" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a name for mock criticism?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-philosophy" title="Philosophy Stack Exchange"></div><a href="https://philosophy.stackexchange.com/questions/50209/why-do-some-people-care-so-much-about-empirical-truth" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:265 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do some people care so much about "empirical truth"?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/182410/should-i-be-concerned-about-strange-new-iphone-app-appearing-after-repair" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I be concerned about strange, new iPhone app appearing after repair?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/161777/can-any-time-on-clock-be-spoken-as-it-is-in-numbers-only-hour-minutes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can any time on clock be spoken as it is in numbers only (hour + minutes)?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/93513/the-usa-self-employment-tax-dodge-mystery" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The USA "self-employment tax dodge" mystery
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/29892/why-do-few-no-countries-claim-capitalism-as-their-ideology" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do few/no countries claim capitalism as their ideology?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/108121/how-do-you-study-magic-without-it-being-a-science" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do you study magic without it being a science?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-interpersonal" title="Interpersonal Skills Stack Exchange"></div><a href="https://interpersonal.stackexchange.com/questions/12420/how-do-i-clarify-that-the-gift-someone-gave-me-is-mine-when-they-are-asking-for" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:680 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I clarify that the gift someone gave me is mine when they are asking for it back?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/365260/why-place-a-diode-in-series-with-the-led-in-an-optocoupler" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why place a diode in series with the LED in an optocoupler?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/29879/is-anything-preventing-non-us-citizens-from-illegally-registering-to-vote-in-non" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is anything preventing non-US citizens from illegally registering to vote in non-Voter-ID states?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/45377/why-did-the-soviet-union-name-their-strongest-bomb-tsar-bomba" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why did the Soviet Union name their strongest bomb Tsar Bomba?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-interpersonal" title="Interpersonal Skills Stack Exchange"></div><a href="https://interpersonal.stackexchange.com/questions/12381/how-to-stop-people-from-looking-at-my-mouth-when-were-having-a-conversation" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:680 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to stop people from looking at my mouth when we're having a conversation?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/119358/is-partial-armour-an-optional-rule" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is partial armour an optional rule?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-writing" title="Writing Stack Exchange"></div><a href="https://writing.stackexchange.com/questions/34591/how-should-i-respond-to-a-supervisor-editor-who-thinks-my-technical-writing-is" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How should I respond to a supervisor/editor who thinks my technical writing is "too conversational?"
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/119195/player-character-wants-a-gun-in-a-prehistoric-campaign-what-to-do" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Player character wants a gun in a prehistoric campaign. What to do?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+
+<div id="feed-link">
+    <a href="https://stackoverflow.com/feeds/question/7097623" title="feed of this question and its answers">
+        <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"></path></svg>
+        question feed
+    </a>
+</div>
+        </div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/7097623/ivc/ab8b');});</script>
+<noscript>&lt;div&gt;&lt;img src="/posts/7097623/ivc/ab8b" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;</noscript><div style="display:none" id="prettify-lang">lang-java</div></div>
+
+    <script>
+        $('#wmd-input').one("keypress", function() {
+            $.ajax({
+                url: '/accounts/email-settings-form',
+                cache: false,
+                success: function(data) {
+                    $('#submit-button').parent().prepend(data);
+                }
+            });
+        });
+
+    </script>
+
+        </div>
+    </div><script async="" src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/clc.min.js.download"></script><script async="" src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/gpt.js.download"></script>
+
+    <footer id="footer" class="site-footer js-footer" role="contentinfo">
+        <div class="site-footer--container">
+                <div class="site-footer--logo">
+
+                    <a href="https://stackoverflow.com/"><svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><g><path fill="#BCBBBB" d="M26 33v-9h4v13H0V24h4v9z"></path><path d="M23.1 25.99l.68-2.95-16.1-3.35L7 23l16.1 2.99zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm4.2-7.4L26 18.4l2.1-2.5L15.4 5.3l-2.1 2.5zM21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM7 30h16v-3H7v3z" fill="#F48024"></path></g></svg></a>
+                </div>
+            
+            <nav class="site-footer--nav">
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                     <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
+                                                            <li class="-item"><a href="https://stackoverflow.com/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                <li class="-item"><a onclick="StackExchange.switchMobile(&quot;on&quot;)" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </div>
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com/?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation&amp;utm_term=sotob2b-footer-business-category" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Stack Overflow<br> Business</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation&amp;utm_term=sotob2b-footer-talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation&amp;utm_term=sotob2b-footer-advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Ads</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/enterprise?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation&amp;utm_term=sotob2b-footer-enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                        </ul>
+                    </div>
+                <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackexchange.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackexchange.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer--col site-footer--categories-nav site-footer--col__visible">
+                    <a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"></path></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com/">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/7097623/need-to-perform-a-reverse-dns-lookup-of-a-particular-ip-address-in-java/8402645#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-footer--categories">
+                    <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Português</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores y profesionales de la informática">Stack Overflow en español</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                <li class="-item"><a href="https://bitcoin.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (28)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (15)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (33)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientists, academics, teachers and students">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                <li class="-item"><a href="https://area51.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                    </ul>
+    </div>
+                </div>
+            </nav>
+            <div class="site-footer--copyright fs-fine">
+                <ul class="-list">
+                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">Blog</a></li>
+                    <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                    <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                    <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                </ul>
+
+                <p class="mt-auto mb24">
+site design / logo © 2018 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                            with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                    <span id="svnrev">rev&nbsp;2018.3.29.29635</span>
+                </p>
+            </div>
+        </div>
+
+            </footer>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled
+        &lt;/div&gt;
+    </noscript>
+
+<script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                var trackingCodes = [
+                    'UA-5620270-1'
+                ];
+
+                        trackingCodes.push('UA-108242619-1');
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: trackingCodes
+                });
+
+                    StackExchange.ga.setDimension('dimension1', '3076816');
+
+                    StackExchange.ga.setDimension('dimension10', 'PassivelyLooking');
+
+                    StackExchange.ga.setDimension('dimension2', '|java|dns|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+</script>
+        
+    
+    
+<div class="adsbox" id="clc-abd" style="position: absolute; pointer-events: none;">&nbsp;</div><script src="./Need to perform a reverse DNS lookup of a particular IP address in java - Stack Overflow_files/markup.js.download" async=""></script><script id="wappalyzer" src="chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/inject.js"></script></body></html>

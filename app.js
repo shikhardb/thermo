@@ -44,4 +44,4 @@ function randomDate(start, end) {
 //  }, null, true, 'America/Los_Angeles');
 
 
-app.listen(3000, () => console.log('App listening on port 3000!'));
+app.listen(3000, () => console.log('App listening on port 3000'));
